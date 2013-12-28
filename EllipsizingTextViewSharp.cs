@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.Content;
 using Android.Graphics;
+using Android.Runtime;
 using Android.Text;
 using Android.Util;
 using Android.Widget;
@@ -8,9 +10,9 @@ using Java.Lang;
 using Java.Util.Regex;
 using String = System.String;
 
-namespace Kobynet
+namespace com.kobynet.text
 {
-    public class EllipsizingTextView : TextView
+    public class EllipsizingTextViewSharp : TextView
     {
         private const string ELLIPSIS = "\u2026";
         private static readonly Pattern DefaultEndPunctuation = Pattern.Compile("[\\.,\u2026;\\:\\s]*$", RegexOptions.Dotall);
@@ -33,22 +35,33 @@ namespace Kobynet
         */
         private Pattern _endPunctuationPattern;
 
+        protected EllipsizingTextViewSharp(IntPtr javaReference, JniHandleOwnership transfer)
+            : base(javaReference, transfer)
+        {
+            Init();
+        }
 
-        public EllipsizingTextView(Context context)
+        public EllipsizingTextViewSharp(Context context)
             : this(context, null)
         {
+            Init();
         }
 
-        public EllipsizingTextView(Context context, IAttributeSet attrs)
+        public EllipsizingTextViewSharp(Context context, IAttributeSet attrs)
             : this(context, attrs, 0)
         {
+            Init();
         }
 
-        public EllipsizingTextView(Context context, IAttributeSet attrs, int defStyle)
+        public EllipsizingTextViewSharp(Context context, IAttributeSet attrs, int defStyle)
             : base(context, attrs, defStyle)
         {
+            Init();
+        }
+
+        private void Init()
+        {
             base.Ellipsize = null;
-            context.ObtainStyledAttributes(attrs, new int[] { });
 
             SetMaxLines(int.MaxValue);
 
