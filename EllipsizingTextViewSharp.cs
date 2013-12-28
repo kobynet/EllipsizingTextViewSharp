@@ -59,13 +59,13 @@ namespace com.kobynet.text
         }
 
         public EllipsizingTextViewSharp(Context context)
-            : this(context, null)
+            : base(context)
         {
             Init();
         }
 
         public EllipsizingTextViewSharp(Context context, IAttributeSet attrs)
-            : this(context, attrs, 0)
+            : base(context, attrs)
         {
             Init();
         }
