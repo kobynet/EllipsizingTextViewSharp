@@ -3,7 +3,7 @@ EllipsizingTextViewSharp
 
 A direct port of [EllipsizingTextView](https://github.com/triposo/barone/blob/master/src/com/triposo/barone/EllipsizingTextView.java) to C# to work with [Xamarin.Android](http://xamarin.com/monoforandroid)
 
-I'v added few changes of my own like fixing the TextView cut last line decender (for example the letter 'g' decender might be cut off in some situations).
+I'v added few changes of my own like fixing the TextView cut last line descent (for example the letter 'g' descent might be cut off in some situations).
 
 Usage
 -----
